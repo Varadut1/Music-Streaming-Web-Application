@@ -1,0 +1,90 @@
+body{
+    background-color: #3D5656;
+}
+.upper{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 2%;
+}
+.n1{
+    color: white;
+}
+.normal-user{
+    padding: 3%;
+    text-align: center;
+    border: black solid 2px;
+    border-radius: 10px;
+    color: white;
+    margin: 2%;
+    background-color: #002B5B;
+}
+.insider{
+    margin-left: 5%;
+}
+.n2{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 5%;
+}
+.track{
+    padding: 20%;
+    text-align: center;
+    border: black solid 2px;
+    border-radius: 10px;
+    color: white;
+    margin: 10%;
+    background-color: #002B5B;
+}
+.album{
+    padding: 20%;
+    text-align: center;
+    border: black solid 2px;
+    border-radius: 10px;
+    color: white;
+    margin: 10%;
+    background-color: #002B5B;
+}
+.genre{
+    padding: 20%;
+    text-align: center;
+    border: black solid 2px;
+    border-radius: 10px;
+    color: white;
+    margin: 10%;
+    background-color: #002B5B;
+}
+
+/* .lower{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 2%;
+} */
+
+.lower{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 2%;
+}
+
+.creators{
+    padding: 3%;
+    text-align: center;
+    border: black solid 2px;
+    border-radius: 10px;
+    color: white;
+    margin: 2%;
+    background-color: #002B5B;
+}
+.graphs{
+    margin-left: 8%;
+    padding: 3%;
+    text-align: center;
+    border: black solid 2px;
+    border-radius: 10px;
+    color: white;
+    background-color: #002B5B;
+}

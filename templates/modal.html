@@ -1,0 +1,29 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        {% if data['nav']=="uneven" %}
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Adminstrator Info</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h2>{{ data['user'].admin_name }}</h2>
+            <!-- <h3>{{ data['user'].profile }}</h3> -->
+          </div>
+        {% else %}
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{{ data['user'].profile[0] | upper + data['user'].profile[1:]}} Info</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h2>{{ data['user'].username }}</h2>
+            <h3>{{ data['user'].profile }}</h3>
+          </div>
+        {% endif %}
+          
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

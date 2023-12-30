@@ -1,0 +1,38 @@
+
+.container{
+    margin-top: 5%;
+}
+.comp-song{
+    display: flex;
+    align-items: center;
+    padding: 1%;
+    margin-left: 5%;
+    margin-right: 10%;
+    margin-top: 2px;
+    margin-bottom: 1px;
+    background-color: #C3ACD0;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.comp-song h5 {
+    margin-right: 250px; /* Pushes the h5 element to the left */
+}
+
+/* .comp-song label {
+    text-align: center; /* Centers the label text */
+    /* flex: 1;
+} */ 
+
+.comp-song label{
+    text-align: center;
+    flex: 1;
+    /* margin-right: auto; */
+}
+
+.comp-song i{
+    margin-left: auto;
+}
+.comp-song button{
+    background: none;
+    border: none;
+}

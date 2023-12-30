@@ -1,0 +1,56 @@
+    
+{% include 'header.html' %}
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/playlist.css">
+<link rel="stylesheet" type="text/css" href="./static/creator.css">
+<link rel="stylesheet" href="./static/ad.css">
+<title>Document</title>
+</head>
+<body>
+    {% include 'nav.html' %}
+    {% include 'modal.html' %}
+    
+    <div class="upper">
+        <div class="normal-user">
+            <h3>Total Users</h3>
+            <h2>{{ data["totaluser"] }}</h2>
+        </div>
+        <div class="insider">
+            <div class="n1">
+                <h2>App Performance</h2>
+            </div>
+            <div class="n2">
+                <div class="track">
+                    Tracks
+                <h2>{{ data["tracks"] }}</h2>
+                </div>
+                <div class="album">
+                    Total Albums
+                <h2>{{ data["albums"] }}</h2>
+                </div>
+                <div class="genre">
+                    Genre
+                <h2>{{ data["genre"] }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lower">
+        <div class="creators">
+            <h3>Total Creators</h3>
+            <h2>{{ data["totalcreator"] }}</h2>
+        </div>
+        <div class="graphs">
+            <img src="{{ data['best'] }}" alt="bestsong stats" srcset="">
+            <br><br><br>
+            <img src="{{ data['most'] }}" alt="bestsong stats" srcset="">
+            <h3 style="margin-top: 4%;">Most Recent Uploads</h3>
+            <br>
+            {% for i in data['latest'] %}
+                {% set myvar = loop.index %}
+                {% include 'latest.html' %}
+            {%endfor%}
+        </div>
+    </div>
+        
+    {% include 'footer.html' %}

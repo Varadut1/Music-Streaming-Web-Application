@@ -1,0 +1,28 @@
+{% include 'header.html' %}
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/playlist.css">
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/createalbum.css">
+<title>Document</title>
+<script src="https://kit.fontawesome.com/ac4ddf352c.js" crossorigin="anonymous"></script>
+</head>
+<body style="background-color: #FFEAC9; text-align: center;">
+    {% include 'nav.html' %}
+    {% include 'modal.html' %}
+
+    <h3 style="padding-top: 5%;">Create New Album</h3>
+<form action="/createalbum" method="post" style="margin-right: 20%; margin-left: 20%;">
+    <div class="container">
+        <form action="/submit" method="post">
+            <label for="name">Name of Album:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            {% for i in data['songs'] %}
+                <input type="checkbox" id="checkbox{{ i }}" name="checkbox" value="{{ i.s_id }}">
+                <label for="checkbox{{ i }}">{{ i.name | replace(".mp3", "")}}</label><br>
+            {% endfor %}
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</form>
+
+{% include 'footer.html' %}

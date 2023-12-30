@@ -1,0 +1,23 @@
+{% include 'header.html' %}
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/playlist.css">
+<link rel="stylesheet" href="http://127.0.0.1:5000/static/dashboard.css">
+<title>Document</title>
+<script src="https://kit.fontawesome.com/ac4ddf352c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    {% include 'nav.html' %}
+    {% include 'modal.html' %}
+    <div class="upcomponent">
+        <h2>Dashboard</h2>
+        {% include 'dsbox.html' %}
+    </div>
+    <div class="downcomponent">
+        <h2> Your Uploads </h2>
+        <form action="/dashboard" method="post">
+            {% for i in data['songs'] %}
+                {% set myvar = loop.index %}
+                {% include 'uploads.html' %}
+            {%endfor%}
+        </form>
+    </div>
+{% include 'footer.html' %}

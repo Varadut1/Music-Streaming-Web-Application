@@ -1,0 +1,57 @@
+{% include 'header.html' %}
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/playlist.css">
+<title>Document</title>
+<script src="https://kit.fontawesome.com/ac4ddf352c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    {% include 'nav.html' %}
+    {% include 'modal.html' %}
+    <h1>{{ data['id'].name }}</h1>
+
+    <!--  search bar  -->
+    <div class="header-search" style="margin-top: 2%; margin-right: 10%; margin-left: 10%;">
+        <form action="{{ data['id'].p_id }}" method="post" class="d-flex ms-auto">
+                <input class="form-control me-2" type="search" name="song"  placeholder="Search Songs to add" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit" name="search">Search</button>
+        
+            <div class="btn-group">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" style="margin-left: 100%;">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EModal" style="background: none; border: none; color: black;" onmouseover="this.style.color='gray';" 
+                        onmouseout="this.style.color='black';"  > Edit</li></button>
+                    <li><button type="submit" name="deletep" style="background: none; border: none; color: black;" onmouseover="this.style.color='gray';" 
+                        onmouseout="this.style.color='black';" >Delete</li></button>
+                </ul>
+            </div>
+            <div class="modal fade" id="EModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Rename the playlist</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <label>Enter</label>
+                            <input type="text" value="" name="name" id="">
+                        </div>
+                        <div class="modal-footer">
+                            <button name="playlist" type="submit" class="btn btn-primary">Change</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <form action="{{ data['id'].p_id }}" method="post">
+        <div class="container">
+            {% for i in data['songlist'] %}
+                {% set myvar = loop.index %}
+                {% include 'displaysong.html' %}
+            {%endfor%}
+        </div>
+    </form>
+
+    {% include 'footer.html' %}

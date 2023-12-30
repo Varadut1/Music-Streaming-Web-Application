@@ -1,0 +1,98 @@
+
+.lyric-content{
+    margin: 20%;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 5%;
+    background-color: #D2E0FB;
+}
+
+.lyric-block {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #F9F3DF;
+    max-width: 800px; /* Set a maximum width for the div */
+    margin-left: auto; /* Center the div horizontally */
+    margin-right: auto; /* Center the div horizontally */
+    /* text-align: center; Center the text within the div */
+     /* Preserve line breaks and wrap long lines */
+  }
+
+.lyric-content .but{
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.but button{
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #BC7AF9;
+}
+.but .l-button{
+    padding: 8px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #FFA1F5;
+}
+
+.but .l-button:hover{
+    color: white;
+    background-color: black;
+}
+
+span{
+    font-family: Comic Sans Ms;
+}
+
+#range{
+    -webkit-appearance: none;
+    width: 75%;
+    height: 4px;
+    background: #715262;
+    border-radius: 4px;
+    cursor:pointer;
+    margin: 40px 0;;
+}
+#range::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background: #f53192;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid #FFA1F5;
+    box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22)
+}
+
+.control .play{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #f53192;
+    box-shadow: 0 10px 20px rgba(255, 26, 26, 0.22);
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+    margin-right: 70px;
+    background: #F9F3DF;
+}
+
+.positionbut{
+    margin-left: 80%;
+}
+
+.title-rating{
+    /* margin-right: 5%; */
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+}

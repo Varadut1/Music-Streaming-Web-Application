@@ -1,0 +1,51 @@
+{% include 'header.html' %}
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/outer.css">
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/playlist.css">
+<title>Document</title>
+<script src="https://kit.fontawesome.com/ac4ddf352c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    {% include 'nav.html' %}
+    {% include 'modal.html' %}
+    {% if data['template']==1 %}
+        <div class="top">
+            <h1>All Tracks</h1>
+            <form class="d-flex ms-auto" action="track" method="post">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="song">
+                <button class="btn btn-outline-dark" type="submit" name="search">Search</button>
+            </form>
+        </div>
+        <div class="total">
+            <form action="track" method="post">
+            {% for key, values in data['genre'].items() %}
+            {% if values | length > 0 %}
+                <div class="outer">
+                    <div class="elem">
+                        <h3>{{ key }}</h3>
+                    </div>
+                        {% for i in values%}
+                            <div class="inner">
+                                {% set myvar = loop.index %}
+                                {% include 'inner.html' %}
+                            </div>
+                        {% endfor %}
+                </div>
+            {% endif %}
+            {% endfor %}
+            </form>
+        </div>
+    {% else %}
+    <form action="track" method="post">
+        <div class="outer">
+            <div class="elem">
+            </div>
+                {% for i in data['songs']%}
+                    <div class="inner">
+                        {% set myvar = loop.index %}
+                        {% include 'inner.html' %}
+                    </div>
+                {% endfor %}
+        </div>
+    </form>
+    {% endif %}
+{% include 'footer.html' %}

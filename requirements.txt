@@ -1,0 +1,8 @@
+Flask-SQLAlchemy
+Flask
+flask-restful
+Werkzeug
+requests
+matplotlib
+fuzzywuzzy
+python-Levenshtein

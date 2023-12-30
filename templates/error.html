@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/error.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <h2>{{ data['msg'] }} </h2>
+    <br><br><br>
+    <a href="{{ url_for(data['red']) }}">Go Back</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./static/welcome.css">
+    <title>BeatX</title>
+</head>
+<body>
+    <div class="navbarnew">
+        <a href="/" style="float: left;">BeatX</a>
+          <span class="navbar-toggler-icon"></span>
+        <a class="" href="adminlogin" style="float: right;">App Admin Login </a>
+      </div>
+        <div style="margin-top: 15%; margin-left: 22%; margin-right: 22%; padding: 10px;">
+        <div class="mid" >
+          <h1> Welcome to the BeatX Streaming </h1>
+        </div>
+        <div class="registeration">
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToRegister()">Register</button>
+            <button type="button" class="btn btn-secondary btn-lg" onclick="redirectToLogin()">Login</button>
+        </div>
+        <br><br><br><br>
+      </div>
+
+        <script>
+            function redirectToLogin() {
+                window.location.href = "login";
+            }
+            function redirectToRegister() {
+                window.location.href = "register";
+            }
+        </script>
+</body>
+</html>

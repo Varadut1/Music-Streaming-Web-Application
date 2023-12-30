@@ -1,0 +1,43 @@
+body{
+    background-color: #E3FCBF;
+}
+.container-body{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 2%;
+}
+
+.container-items{
+    display: flex;
+    border: black solid 2px;
+    border-radius: 10px;
+    padding: 2%;
+    background-color: #0F1123;
+}
+
+.component{
+    display: block;
+    padding: 15px;
+    margin: 10px;
+    width: 320px;
+    background-color: #D2E0FB;
+    border-radius: 20px;
+}
+.component button{
+    display: block;
+    margin: 3px;
+    margin-top: 50px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: "Comic Sans MS";
+    border: 2px solid black;
+    background-color: #F9F3CC;
+    border-radius: 20px;
+}
+
+.scroll {
+    white-space: nowrap; /* Ensures that the content is displayed in a single line */
+    overflow-x: auto; /* Enables the horizontal scrollbar */
+    width: 100%; /* Adjust the width as needed */
+}

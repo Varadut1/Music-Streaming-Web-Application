@@ -1,0 +1,35 @@
+<div class="comp-song">
+    <a href="/lyrics/{{ i.s_id }}"><h5>{{myvar}}.{{ i.name | replace('.mp3', '')}}</h5></a>
+    <a href="/about/{{ i.s_id }}" style="text-decoration: none;"> About </a>
+    <label> {{ i.singer }} </label>
+    <!-- <button type="submit" value="{{ i.s_id }}" name="edit">Edit</button> -->
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">{{ data['user'].profile[0] | upper + data['user'].profile[1:]}} Info</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label>Lyrics</label>
+                <br>
+                <textarea name="lyrics" id="" cols="50" rows="10">{{ i.lyrics }}</textarea>
+                <br><br>
+                <label>Name</label>
+                <input type="text" name="name" id="" value="{{ i.name | replace('.mp3', '') }}">
+                <br><br>
+                <label>Singer</label>
+                <input type="text" name="singer" id="" value="{{ i.singer }}">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: rgb(49, 48, 48)">Close</button>
+              <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: rgb(76, 126, 76);" name="save" value="{{ i.s_id }}">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <button type="submit" value="{{ i.s_id }}" name="delete"><i class="fa-solid fa-ban"></i></a>
+</div>

@@ -1,0 +1,26 @@
+.top{
+    margin: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.outer{
+    border: black solid 2px;
+    border-radius: 10px;
+    margin: 5%;
+    padding: 1%;
+}
+
+.elem{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+/* .inner{
+    display: none;
+}
+.inner:nth-child(2) {
+    display: contents;
+}  */

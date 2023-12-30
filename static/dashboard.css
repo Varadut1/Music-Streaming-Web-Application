@@ -1,0 +1,44 @@
+.upcomponent{
+    background-color: #F7A4A4;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+    padding-left: 2%;
+    padding-top: 2%
+}
+
+.total{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.ds{
+    background-color: #C3ACD0;
+    margin: 2%;
+    margin-right: 5%;
+    margin-left: 5%; 
+    padding: 5px;
+    text-align: center;
+    border: black solid 1px;
+    border-radius: 10px;    
+}
+
+.downcomponent{
+    background-color: #F7A4A4;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+    padding-left: 2%;
+    padding-top: 2%
+}
+.comp-song{
+    margin: 2%;
+}
+body{
+    background-color: #FFEEF4;
+}

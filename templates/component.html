@@ -1,0 +1,6 @@
+<div class="component">
+    <form action="home" method="post">
+        <p style="text-overflow: ellipsis;"><b>{{ i.name | replace(".mp3", '')}}</b></p>
+        <button type="submit" name="hidden" value="{{ i.s_id }}">Play / View Lyrics</button>
+    </form>     
+</div>

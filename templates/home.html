@@ -1,0 +1,81 @@
+<link rel="stylesheet" type="text/css" href="./static/container-body.css">
+{% include 'header.html' %}
+<title>Document</title>
+</head>
+<body style="background-color: #CFFFDC;">
+    {% include 'nav.html' %}
+    {% include 'modal.html' %}
+    <div class="container-body">
+        <h1>{{ newdata }}</h1>
+    {% for key, value in components.items() %}
+        {% if key=="recommended" %}
+            <h2> Recommended Songs</h2>
+            <div class="container-items scroll">
+            {% for i in components["recommended"]%}
+                {% include "component.html" %}
+            {% endfor %}
+            </div>
+        {% endif %}
+        <br>
+        {% if key=="playlist" %}
+        <form action="home" method="post">
+          <div class="playlist" style="display: flex; align-items: center;">
+              <h2 style="margin-left: auto;"> Playlists </h2>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PModal" style="margin-left: 1050px;" >Create New Playlist</button>
+              <div class="modal fade" id="PModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">New Playlist!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          <label>Title of the new Playlist</label>
+                        <input type="text" value="" name="name" id="">
+                      </div>
+                      <div class="modal-footer">
+                          <button name="playlist" type="submit" class="btn btn-primary">Create</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </form>
+            {% if components["playlist"]!=[] %}
+              <div class="container-items scroll">
+                {% for i in components["playlist"] %}
+                    {% include "component2.html" %}
+                {% endfor %}
+              </div>
+            {% endif %}
+
+          {% elif key=="album" %}
+            {% if value | length > 0 %}
+            <h2>Albums</h2>
+              <div class="container-items scroll">
+              {% for i in components["album"] %}
+                {% include "component3.html" %}
+              {% endfor %}
+            </div>
+            {% endif %}
+
+          {% elif key=="genre" %}
+            {% for nk,j in components["genre"].items() %}
+              {% if j | length > 0 %}
+                <h2>{{ nk }}</h2>
+                <div class="container-items scroll">
+                  {% for i in j %}
+                    {% include "component.html" %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endfor %}
+
+          {% endif %}
+
+        {% endfor %}
+    </div>
+    
+    {% include 'footer.html' %}
+
+<!-- { recommended:[song_object], playlist:[playlist_object<view tracks>], genres:[{gname:[songs], ....}] } -->

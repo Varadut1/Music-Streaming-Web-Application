@@ -1,0 +1,18 @@
+body{
+    background-color: #FFE5E5;
+}
+
+h2{
+    text-align: center; /* Center the text */
+    width: 40%; /* Set the width to 40% of the container */
+    margin: auto; /* Center the element horizontally */
+    border: 1px solid black; /* Optional border */
+    padding: 10px;
+    margin-top: 20%;
+    background-color: whitesmoke;
+}
+
+a{
+    margin-left: 43%;
+}
+

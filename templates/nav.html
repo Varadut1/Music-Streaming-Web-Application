@@ -1,0 +1,32 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-custom" style="background-color: #B0D9B1;">
+        <div class="container-fluid">
+            <div class="navbar-collapse" id="navbarNav" >
+                {% if data['nav']=="uneven" %}
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: wheat; padding: 10px; border: 3px solid black; border-radius: 100%; background-color: black;">{{ data['user'].admin_name[0] | upper}}</button> 
+                {% else %}
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: wheat; padding: 10px; border: 3px solid black; border-radius: 100%; background-color: black;">{{ data['user'].username[0] | upper}}</button> 
+                    {% if data['nav']=="prime" %}
+                        <form class="d-flex ms-auto" action="/home" method="post">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                            <button class="btn btn-outline-dark" type="submit" name="submit">Search</button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ data['e1'][1] }}">| {{ data['e1'][0] }}</a>
+                    </li>
+                    {% if data['sub']!='no' %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ data['e2'][1] }}">| {{ data['e2'][0] }}</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ data['e3'][1] }}">| {{ data['e3'][0] }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

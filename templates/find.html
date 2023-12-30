@@ -1,0 +1,82 @@
+<link rel="stylesheet" type="text/css" href="./static/container-body.css">
+{% include 'header.html' %}
+<title>Document</title>
+</head>
+<body>
+    {% include 'nav.html' %}
+    {% include 'modal.html' %}
+    <div class="container-body">
+        <!-- <h1>{{ newdata }}</h1> -->
+    {% for key, value in data['all'].items() %}
+        <!-- {{ data["all"] }} -->
+        {% if data["all"]["ratedaround"] | length > 0 %}
+            {% if key=="ratedaround" %}
+                <h2> Rated Around {{ data["value"] }}</h2>
+                <div class="container-items scroll">
+                {% for i in data['all']["ratedaround"]%}
+                    {% include "component.html" %}
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endif %}
+        {% if data["all"]["songs"] | length > 0 %}
+            {% if key=="songs" %}
+                <h2> Best Search for {{ data["value"] }}</h2>
+                <div class="container-items scroll">
+                {% for i in data['all']["songs"]%}
+                    {% include "component.html" %}
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endif %}
+        {% if key=="playlists" %}
+            {% if data["all"]["playlists"] | length > 0 %}
+            <h2> Playlists that Matches for {{ data["value"] }}</h2>
+              <div class="container-items scroll">
+                {% for i in data["all"]["playlists"] %}
+                    {% include "component2.html" %}
+                {% endfor %}
+              </div>
+            {% endif %}
+
+          {% elif key=="albums" %}
+            {% if data["all"]["albums"] | length > 0 %}
+            <h2>Albums that matches {{ data["value"] }}</h2>
+              <div class="container-items scroll">
+              {% for i in data['all']["albums"] %}
+                {% include "component3.html" %}
+              {% endfor %}
+            </div>
+            {% endif %}
+
+          {% elif key=="genres" %}
+          {% if data["all"]["genres"] | length >0 %}
+            <h2>Nearest search to {{ data["value"] }} </h2>
+                {% for nk,j in data['all']["genres"].items() %}
+                {% if j | length > 0 %}
+                    <div class="container-items scroll">
+                    {% for i in j %}
+                        {% include "component.html" %}
+                    {% endfor %}
+                    </div>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% elif key=="singers" %}
+                {% if data["all"]["singers"] | length > 0 %}
+                <h2>Songs by singer {{ data["value"] }}</h2>
+                <div class="container-items scroll">
+                    {% for i in data['all']["singers"] %}
+                      {% include "component.html" %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+          {% endif %}
+
+        {% endfor %}
+    </div>
+    
+    {% include 'footer.html' %}
+
+<!-- { recommended:[song_object], playlist:[playlist_object<view tracks>], genres:[{gname:[songs], ....}] } -->

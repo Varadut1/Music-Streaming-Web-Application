@@ -1,0 +1,51 @@
+{% include 'header.html' %}
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/playlist.css">
+<link rel="stylesheet" href="http://127.0.0.1:5000/static/dashboard.css">
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/creator.css">
+<link rel="stylesheet" href="http://127.0.0.1:5000/static/ad.css">
+<!-- <link rel="stylesheet" href="http://127.0.0.1:5000/static/dashboard.css"> -->
+<title>Document</title>
+</head>
+<body>
+    {% include 'nav.html' %}
+    {% include 'modal.html' %}
+    
+    <div class="upper">
+        <div class="normal-user">
+            <h3>{{ data['song'] | replace('.mp3', "")}}</h3>
+        </div>
+        <div class="insider">
+            <div class="n1">
+                <h2> Summary </h2>
+            </div>
+            <div class="n2">
+                <div class="track">
+                    Total Likes
+                <h2>{{ data["totallikes"] }}</h2>
+                </div>
+                <div class="album">
+                    Total Plays
+                <h2>{{ data["totalplays"] }}</h2>
+                </div>
+                <div class="genre">
+                    Total Comments
+                <h2>{{ data["totalcomments"] }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {%if data["totalcomments"] > 0 %}
+        <div class="upcomponent">
+            <h3>Comments on This song</h3>
+                {% for i in data["comments"] %}
+                    <div class="ds">
+                        <h4>{{ i[0].comment }}</h4> 
+                        <br>
+                        <h6> - {{ i[1].username }}</h6>
+                    </div>
+                {% endfor %}
+        </div>
+    {%endif%}
+
+    {% include 'footer.html' %}

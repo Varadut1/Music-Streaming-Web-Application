@@ -1,0 +1,25 @@
+{% include 'header.html' %}
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/outer.css">
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/playlist.css">
+<title>Document</title>
+<script src="https://kit.fontawesome.com/ac4ddf352c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    {% include 'nav.html' %}
+    {% include 'modal.html' %}
+    <form action="displayflag" method="post">
+    <div class="outer">
+        <div class="elem">
+        </div>
+            {% if data['songs'] | length > 0 %}
+                {% for i in data['songs']%}
+                    <div class="inner">
+                        {% set myvar = loop.index %}
+                        {% include 'inner.html' %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h2>No flag songs please visit the tracks!</h2>
+            {% endif %}
+    </div>
+</form>

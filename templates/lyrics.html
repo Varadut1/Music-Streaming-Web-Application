@@ -1,0 +1,190 @@
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/lyrics.css">
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/dp.css">
+{% include 'header.html' %}
+<title>Document</title>
+<script src="https://kit.fontawesome.com/ac4ddf352c.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    body{
+        background-color: #C4DFDF;
+    }
+</style>
+<body>
+    {% include 'nav.html' %}
+    {% include 'modal.html' %}
+    <form action="{{ data1['song'].s_id }}" method="post">
+    <div class="lyric-content">
+        <div class="title-rating">
+            <h3 style="margin-top: 8%; margin-left: 15px;">{{ data1["song"].name | replace(".mp3", '') }}</h3>
+            <div class="insider" style="margin-left: 5%; margin-right: 0%;">
+                <div class="image-container">
+                    <img src="http://127.0.0.1:5000/static/images/{{ data1['song'].name | replace('.mp3', data['extension'])}}" accept="image/*" alt="Profile image" srcset="" />
+                </div>
+                <button type="button" class="btn btn-primary rater" data-bs-toggle="modal" data-bs-target="#rateModal" style="padding: 10px; border: 3px solid black; background-color: black; margin-left: 80%;">
+                    <i class="fa-solid fa-star"></i>
+                </button> 
+            </div>
+        </div>
+
+        <div class="modal fade" id="rateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Rate The song</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-check">
+                            {% if data1['comment'].rating==1 %}
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked>
+                            {% else %}
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1">
+                            {% endif %}
+                            <label class="form-check-label" for="exampleRadios1">
+                                ⭐
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            {% if data1['comment'].rating==2 %}
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="2" checked>
+                            {% else %}
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="2">
+                            {% endif %}
+                            <label class="form-check-label" for="exampleRadios2">
+                                ⭐⭐
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            {% if data1['comment'].rating==3 %}
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="3" checked>
+                            {% else %}
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="3">
+                            {% endif %}
+                            <label class="form-check-label" for="exampleRadios3">
+                                ⭐⭐⭐
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            {% if data1['comment'].rating==4 %}
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="4" checked>
+                            {% else %}
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="4">
+                            {% endif %}
+                            <label class="form-check-label" for="exampleRadios4">
+                                ⭐⭐⭐⭐
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            {% if data1['comment'].rating==5 %}
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="5" checked>
+                            {% else %}
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="5">
+                            {% endif %}
+                            <label class="form-check-label" for="exampleRadios5">
+                                ⭐⭐⭐⭐⭐
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button name="rate" type="submit" class="btn btn-primary">Rate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+ 
+        <p style="margin-left: 15px;"> <b> {{ data1["song"].singer }} | {{ data1["song"].doc }} </b> </p>
+        <audio id="song">
+            <source src="http://127.0.0.1:5000/static/songs/{{ data1['song'].name | replace(' ', '%20') }}" type="audio/mpeg">
+        </audio>
+        
+        <div class="control">
+            <i onclick="playpause()"  class="fa-solid fa-play play" id="ctrl"></i>
+            <input type="range" name="" id="range" value="0">
+        </div>
+        <div class="lyric-block" style="text-align: center;">
+            <p style="font-family: Comic Sans MS;">{{ data1["song"].lyrics | replace("\n", "<br>") | safe }}</p>
+        </div>
+        <div class="but">
+            {% if data1["comment"].liked == 1 %}
+                <button type="submit" name="like" class="l-button" style="margin-right: 10px;">💔</button>
+            {% else %}
+                <button type="submit" name="like" class="l-button" style="margin-right: 10px;">❤️</button>
+            {% endif %} | 
+            {% if data1["comment"].comment != "" %}
+                <span> You've commented, click to view or edit </span>  
+            {% endif %}
+            <button name="comment" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal" style="margin-left: 10px;"> 💬 </button>
+            
+            <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Uploader can see your comment!</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label>Comment the song</label>
+                      <input type="text" value="{{ data1['comment'].comment }}" name="comment-text" id="">
+                    </div>
+                    <div class="modal-footer">
+                        <button name="comment" type="submit" class="btn btn-primary">Save Comment</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    </form> 
+    <script>
+        window.onload = function() {
+            song.pause(); // Pause the song on load
+        };
+
+        let range = document.getElementById("range")
+        let song = document.getElementById("song")
+        let ctrl = document.getElementById("ctrl")
+
+        song.onloadedmetadata = function(){
+            range.max = song.duration;
+            range.value = song.currentTime;
+        }
+        function playpause(){
+            if(ctrl.classList.contains("fa-pause")){
+                song.pause();
+                ctrl.classList.remove("fa-pause");
+                ctrl.classList.add("fa-play");
+            }
+            else{
+                song.play();
+                ctrl.classList.remove("fa-play");
+                ctrl.classList.add("fa-pause");
+            }
+        }
+        if(song.play()){
+            setInterval(()=>{
+                range.value = song.currentTime;
+            }, 800);
+
+        }
+        range.onchange = function(){
+            console.log("Range changed!");
+            song.play();
+            song.currentTime = range.value;
+            ctrl.classList.add("fa-pause");
+            ctrl.classList.remove("fa-play");
+        }
+
+    </script>
+    {% include 'footer.html' %}
+
+
+
+
+
+
+
+   

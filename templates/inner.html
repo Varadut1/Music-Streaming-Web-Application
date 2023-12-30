@@ -1,0 +1,6 @@
+<div class="comp-song">
+    <a href="/alyrics/{{ i[0].s_id }}"><h5>{{myvar}}.{{ i[0].name | replace('.mp3', '')}}</h5></a>
+    <label> {{ i[0].singer }} </label>
+    <button type="submit" value="{{ i[0].s_id }}" name="delete"><i class="fa-solid fa-ban"></i></button> | 
+    <button type="submit" value="{{ i[0].s_id }}" name="flag">{% if i[1] == true %}<i class="fa-solid fa-flag"></i>{% else %}<i class="fa-solid fa-circle-exclamation"></i>{% endif %}</button>
+</div>

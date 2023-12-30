@@ -1,0 +1,27 @@
+
+body{
+    background-color: #B0D9B1;
+}
+
+.form-container{
+    width: 40%; /* Set the width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding to the form */
+    border: 2px solid #000; /* Add a border to the form */
+    border-radius: 10px;
+    background-color: #D0E7D2;
+}
+.form-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.collection{
+    margin-top: 15%;
+}
+
+.bt{
+    display: block; 
+    margin: 0 auto;
+}

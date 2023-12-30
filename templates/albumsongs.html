@@ -1,0 +1,7 @@
+<div class="comp-song">
+    <a href="/lyrics/{{ i.s_id }}"><h5>{{myvar}}.{{ i.name | replace('.mp3', '')}}</h5></a>
+    <label> {{ i.singer }} </label>
+    {% if data['Owner'] == True%}
+        <button type="submit" value="{{ i.s_id }}" name="deletesong"><i class="fa-solid fa-ban"></i></a>
+    {% endif %}
+</div>

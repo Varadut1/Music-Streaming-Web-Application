@@ -1,0 +1,63 @@
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/upload.css">
+{% include 'header.html' %}
+<title>Document</title>
+</head>
+<body style="background-color: #A8DF8E;">
+    {% include 'nav.html' %}
+    {% include 'modal.html' %}
+    <div style="margin-left: 5%;">
+    <h1 style="margin-left: 40%; margin-top: 5%;">Upload Song</h1>
+    <div class="form-container" style="margin-left: 20%; margin-right: 25%; margin-top: 1%; display: flex; border: 2px solid black; border-radius: 20px; padding: 30px; background-color: #C3EDC0;">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" name="name">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Singer</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputPassword3" name="singer">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Release Date</label>
+            <div class="col-sm-10">
+                <input type="date" id="meeting" name="doc" >
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Lyrics</label>
+            <div class="col-sm-10">
+                <textarea id="message" name="lyrics" rows="10" cols="75"></textarea>
+            </div>
+        </div>
+
+        <br><br>
+        <div class="row mb-3" >
+            <label for="genre">Choose Genre</label>
+                <select id="genre" name="genre" style="margin-left: 6%;" required>
+                    {% for i in data['genre'] %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+        </div>
+            
+
+        <div class="row mb-3">
+            <label for="formFile" class="col-sm-2 col-form-label">Song</label>
+            <input class="form-control" type="file" id="mp3File" name="m_file" accept="audio/mp3" style="margin-left: 6%;">
+        </div>
+        <div class="row mb-3">
+            <label for="formFile" class="col-sm-2 col-form-label">Song Profile</label>
+            <input class="form-control" type="file" name="p_file" accept="image/*" style="margin-left: 6%;">
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-left: 50%; margin-top: 5%;">Upload</button>
+      </form>
+    </div>
+</div>
+
+        
+    {% include 'footer.html' %}

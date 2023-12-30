@@ -1,0 +1,16 @@
+    
+{% include 'header.html' %}
+<link rel="stylesheet" type="text/css" href="./static/creator.css">
+<title>Document</title>
+</head>
+<body>
+    {% include 'nav.html' %}
+    {% include 'modal.html' %}
+        <form action="/creator" method="post" class="creators-block">
+        <h1>{{ data["h"] }}</h1>
+        <br>
+        <p>{{ data["p"] }}</p>
+        <button type="submit" class="newbut" style="border: 1px solid black; border-radius: 300px; font-size: 40px; padding: 20px;">+</button>
+        </form>
+        
+    {% include 'footer.html' %}

@@ -1,0 +1,7 @@
+Logging Security
+API
+Session management
+Pages structure
+CSS
+Testing
+Deployment
